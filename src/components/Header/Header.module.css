@@ -1,0 +1,70 @@
+.header {
+  padding: 30px 0;
+  color: #fff;
+  box-shadow: var(--shadow);
+  border-bottom: 2px solid var(--main);
+}
+
+.header__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__logo {
+  font-family: Impact, "Arial Black", sans-serif;
+  font-style: italic;
+  letter-spacing: 2px;
+  line-height: 0.95;
+  font-weight: bold;
+  font-size: 28px;
+  background: linear-gradient(90deg, #ffd700, #ffeb3b, #ffc107);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 8px #ffd700);
+}
+
+.header__switcherWrapp {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+}
+
+.header__switcher {
+  border: 2px solid #fff;
+  padding: 3px;
+  border-radius: 20px;
+  width: 80px;
+  height: 34px;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+
+.header__switcherButton {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #fff;
+  transform: translateX(0);
+  transition: transform 0.3s ease;
+}
+
+.header__switcherUser .header__switcherButton {
+  transform: translateX(45px);
+}
+
+.header__modeTitle {
+  font-size: 18px;
+  font-weight: 600;
+  font-family: "Courier New", monospace;
+  color: #acacac;
+}
+.activeUser {
+  color: #00ff66;
+}
+
+.activeManager {
+  color: #ff00ea;
+}
