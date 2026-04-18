@@ -1,0 +1,20 @@
+.tab__addButton {
+  color: #00ff66;
+  border: 2px solid #00ff66;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: all 0.3s;
+  margin-top: 20px;
+
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.tab__addButton:hover {
+  box-shadow:
+    0 0 30px var(--main),
+    inset 0 -20px 40px rgba(255, 0, 234, 0.1);
+}
