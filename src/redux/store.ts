@@ -9,4 +9,8 @@ export const store = configureStore({
   },
 })
 
+store.subscribe(() => {
+  localStorage.setItem("request", JSON.stringify(store.getState().request))
+})
+
 export type RootState = ReturnType<typeof store.getState>

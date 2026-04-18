@@ -1,36 +1,43 @@
 import styles from "./ModalForm.module.css"
 import closeIcon from "../../assets/close.png"
-import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { addNewRequest } from "../../redux/requestSlice"
+import { useForm } from "react-hook-form"
+
+type FormValues = {
+  title: string
+  description: string
+}
 
 export default function ModalForm({
   setIsModalOpen,
 }: {
   setIsModalOpen: (value: boolean) => void
 }) {
-  const [title, setTitle] = useState("")
-  const [description, setDescription] = useState("")
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<FormValues>()
 
   const dispatch = useDispatch()
 
-  const formHandler = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-
-    if (!title.trim() || !description.trim()) return
+  const formHandler = (data: FormValues) => {
+    const title = data.title.trim()
+    const description = data.description.trim()
 
     dispatch(
       addNewRequest({
         id: Date.now().toString().slice(-6),
         title,
         description,
-        status: "NEW",
+        status: "PROCESS",
         date: Date.now(),
       }),
     )
 
-    setTitle("")
-    setDescription("")
+    reset()
     setIsModalOpen(false)
   }
 
@@ -53,25 +60,46 @@ export default function ModalForm({
           &gt;&gt; Fill in the details below
         </div>
 
-        <form className={styles.modal__form} onSubmit={formHandler}>
+        <form
+          className={styles.modal__form}
+          onSubmit={handleSubmit(formHandler)}
+        >
           <label htmlFor="title">Request Title</label>
           <input
+            {...register("title", {
+              required: "Enter title",
+              minLength: {
+                value: 3,
+                message: "Minimum 3 characters",
+              },
+            })}
             type="text"
             id="title"
-            name="title"
-            required
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
           />
+          <div className={styles.modal__errorWrapp}>
+            {errors.title && <p>&gt;&gt; {errors.title.message}</p>}
+          </div>
 
           <label htmlFor="description">Description</label>
           <textarea
+            {...register("description", {
+              required: "Enter description",
+              minLength: {
+                value: 5,
+                message: "Minimum 5 characters",
+              },
+              maxLength: {
+                value: 200,
+                message: "Maximum 200 characters",
+              },
+            })}
             id="description"
-            name="description"
-            required
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
           />
+          <div className={styles.modal__errorWrapp}>
+            {errors.description && (
+              <p> &gt;&gt; {errors.description.message}</p>
+            )}
+          </div>
 
           <button type="submit" className={styles.modal__button}>
             add request

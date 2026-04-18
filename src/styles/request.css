@@ -1,0 +1,36 @@
+.request {
+  border: 1px solid #00e5ff;
+  border-left: 4px solid #00e5ff;
+  border-radius: 10px;
+  padding: 10px;
+  font-family: "Courier New", monospace;
+}
+
+.request__id {
+  color: #b39ddb;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.request__title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+}
+
+.request__description {
+  color: #b39ddb;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.request__date {
+  color: #949494;
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-top: 10px;
+  font-weight: 600;
+}

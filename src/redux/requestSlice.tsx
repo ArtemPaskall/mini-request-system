@@ -17,7 +17,6 @@ const requestSlice = createSlice({
   reducers: {
     addNewRequest(state, action: PayloadAction<RequestType>) {
       state.push(action.payload)
-      localStorage.setItem("request", JSON.stringify(state))
     },
   },
 })
