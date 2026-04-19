@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux"
 import { RootState } from "../../redux/store"
+import RequestCard from "../RequestCard/RequestCard"
 
 export default function Manager() {
   const request = useSelector((state: RootState) => state.request)
@@ -20,14 +21,7 @@ export default function Manager() {
             <div className="tab__title tab__titleNew">NEW</div>
             <div className="tab__requestWrapp">
               {requestsNew.map((item) => (
-                <div className="request">
-                  <div className="request__id">ID: {item.id}</div>
-                  <div className="request__title">{item.title}</div>
-                  <div className="request__description">{item.description}</div>
-                  <div className="request__date">
-                    Date: {new Date(item.date).toLocaleString()}
-                  </div>
-                </div>
+                <RequestCard key={item.id} request={item} />
               ))}
             </div>
           </div>
@@ -35,14 +29,7 @@ export default function Manager() {
             <div className="tab__title tab__titleProcess">IN-PROCESS</div>
             <div className="tab__requestWrapp">
               {requestsProcess.map((item) => (
-                <div className="request">
-                  <div className="request__id">ID: {item.id}</div>
-                  <div className="request__title">{item.title}</div>
-                  <div className="request__description">{item.description}</div>
-                  <div className="request__date">
-                    Date: {new Date(item.date).toLocaleString()}
-                  </div>
-                </div>
+                <RequestCard key={item.id} request={item} />
               ))}
             </div>
           </div>
@@ -50,14 +37,7 @@ export default function Manager() {
             <div className="tab__title tab__titleDone">DONE</div>
             <div className="tab__requestWrapp">
               {requestsDone.map((item) => (
-                <div className="request">
-                  <div className="request__id">ID: {item.id}</div>
-                  <div className="request__title">{item.title}</div>
-                  <div className="request__description">{item.description}</div>
-                  <div className="request__date">
-                    Date: {new Date(item.date).toLocaleString()}
-                  </div>
-                </div>
+                <RequestCard key={item.id} request={item} />
               ))}
             </div>
           </div>
