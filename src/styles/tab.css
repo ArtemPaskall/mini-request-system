@@ -28,7 +28,7 @@
   margin-top: 20px;
 }
 
-.tab__requesWrapp {
+.tab__requestWrapp {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -36,28 +36,28 @@
   margin-top: 30px;
 }
 
-.tab__requesWrapp > div {
+.tab__requestWrapp > div {
   width: 100%;
   border: 2px solid white;
   padding: 10px;
   border-radius: 15px;
 }
 
-.tab__requesWrapp > .tab__NEW {
+.tab__requestWrapp > .tab__NEW {
   border: 2px solid #00e5ff;
   box-shadow:
     0 0 20px #00e5ff,
     inset 0 0 30px rgba(0, 0, 0, 0.5);
 }
 
-.tab__requesWrapp > .tab__PROCESS {
+.tab__requestWrapp > .tab__PROCESS {
   border: 2px solid #ffea00;
   box-shadow:
     0 0 20px #ffea00,
     inset 0 0 30px rgba(0, 0, 0, 0.5);
 }
 
-.tab__requesWrapp > .tab__DONE {
+.tab__requestWrapp > .tab__DONE {
   border: 2px solid #00ff66;
   box-shadow:
     0 0 20px #00ff66,
@@ -90,7 +90,7 @@
   padding-bottom: 5px;
 }
 
-.tab__requestWrapp {
+.tab__columnWrapp {
   display: flex;
   flex-direction: column;
   gap: 10px;

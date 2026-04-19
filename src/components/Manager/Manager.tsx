@@ -36,7 +36,7 @@ export default function Manager() {
           <div className="tab__description">
             &gt;&gt; Managing all incoming requests
           </div>
-          <div className="tab__requesWrapp">
+          <div className="tab__requestWrapp">
             <RequestColumn id="NEW" title="NEW">
               {requestsNew.length === 0 ? (
                 <div className="tab__emptyColumn">
@@ -48,7 +48,7 @@ export default function Manager() {
                 ))
               )}
             </RequestColumn>
-            <RequestColumn id="PROCESS" title="PROCESS">
+            <RequestColumn id="PROCESS" title="IN-PROCESS">
               {requestsProcess.length === 0 ? (
                 <div className="tab__emptyColumn">
                   &gt;&gt; No active requests

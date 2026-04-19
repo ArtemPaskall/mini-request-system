@@ -5,6 +5,7 @@ import ModalForm from "../ModalForm/ModalForm"
 import { useSelector } from "react-redux"
 import { RootState } from "../../redux/store"
 import RequestCard from "../RequestCard/RequestCard"
+import RequestColumn from "../RequestColumn/RequestColumn"
 
 export default function User() {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -28,49 +29,40 @@ export default function User() {
           >
             + NEW REQUEST
           </button>
-          <div className="tab__requesWrapp">
-            <div className="tab__NEW">
-              <div className="tab__title tab__titleNEW">NEW</div>
-              <div className="tab__requestWrapp">
-                {requestsNew.length === 0 ? (
-                  <div className="tab__emptyColumn">
-                    &gt;&gt; No active requests
-                  </div>
-                ) : (
-                  requestsNew.map((item) => (
-                    <RequestCard key={item.id} request={item} />
-                  ))
-                )}
-              </div>
-            </div>
-            <div className="tab__PROCESS">
-              <div className="tab__title tab__titlePROCESS">IN-PROCESS</div>
-              <div className="tab__requestWrapp">
-                {requestsProcess.length === 0 ? (
-                  <div className="tab__emptyColumn">
-                    &gt;&gt; No active requests
-                  </div>
-                ) : (
-                  requestsProcess.map((item) => (
-                    <RequestCard key={item.id} request={item} />
-                  ))
-                )}
-              </div>
-            </div>
-            <div className="tab__DONE">
-              <div className="tab__title tab__titleDONE">DONE</div>
-              <div className="tab__requestWrapp">
-                {requestsDone.length === 0 ? (
-                  <div className="tab__emptyColumn">
-                    &gt;&gt; No active requests
-                  </div>
-                ) : (
-                  requestsDone.map((item) => (
-                    <RequestCard key={item.id} request={item} />
-                  ))
-                )}
-              </div>
-            </div>
+          <div className="tab__requestWrapp">
+            <RequestColumn id="NEW" title="NEW">
+              {requestsNew.length === 0 ? (
+                <div className="tab__emptyColumn">
+                  &gt;&gt; No active requests
+                </div>
+              ) : (
+                requestsNew.map((item) => (
+                  <RequestCard key={item.id} request={item} />
+                ))
+              )}
+            </RequestColumn>
+            <RequestColumn id="PROCESS" title="IN-PROCESS">
+              {requestsProcess.length === 0 ? (
+                <div className="tab__emptyColumn">
+                  &gt;&gt; No active requests
+                </div>
+              ) : (
+                requestsProcess.map((item) => (
+                  <RequestCard key={item.id} request={item} />
+                ))
+              )}
+            </RequestColumn>
+            <RequestColumn id="DONE" title="DONE">
+              {requestsDone.length === 0 ? (
+                <div className="tab__emptyColumn">
+                  &gt;&gt; No active requests
+                </div>
+              ) : (
+                requestsDone.map((item) => (
+                  <RequestCard key={item.id} request={item} />
+                ))
+              )}
+            </RequestColumn>
           </div>
         </div>
       </div>
