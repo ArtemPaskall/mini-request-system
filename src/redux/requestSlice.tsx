@@ -18,8 +18,17 @@ const requestSlice = createSlice({
     addNewRequest(state, action: PayloadAction<RequestType>) {
       state.push(action.payload)
     },
+    changeStatus(
+      state,
+      action: PayloadAction<{ id: string; status: RequestType["status"] }>,
+    ) {
+      const itemToChangeStatus = state.find((i) => i.id === action.payload.id)
+      if (itemToChangeStatus) {
+        itemToChangeStatus.status = action.payload.status
+      }
+    },
   },
 })
 
-export const { addNewRequest } = requestSlice.actions
+export const { addNewRequest, changeStatus } = requestSlice.actions
 export default requestSlice.reducer

@@ -29,24 +29,24 @@ export default function User() {
             + NEW REQUEST
           </button>
           <div className="tab__requesWrapp">
-            <div className="tab__new">
-              <div className="tab__title tab__titleNew">NEW</div>
+            <div className="tab__NEW">
+              <div className="tab__title tab__titleNEW">NEW</div>
               <div className="tab__requestWrapp">
                 {requestsNew.map((item) => (
                   <RequestCard key={item.id} request={item} />
                 ))}
               </div>
             </div>
-            <div className="tab__process">
-              <div className="tab__title tab__titleProcess">IN-PROCESS</div>
+            <div className="tab__PROCESS">
+              <div className="tab__title tab__titlePROCESS">IN-PROCESS</div>
               <div className="tab__requestWrapp">
                 {requestsProcess.map((item) => (
                   <RequestCard key={item.id} request={item} />
                 ))}
               </div>
             </div>
-            <div className="tab__done">
-              <div className="tab__title tab__titleDone">DONE</div>
+            <div className="tab__DONE">
+              <div className="tab__title tab__titleDONE">DONE</div>
               <div className="tab__requestWrapp">
                 {requestsDone.map((item) => (
                   <RequestCard key={item.id} request={item} />

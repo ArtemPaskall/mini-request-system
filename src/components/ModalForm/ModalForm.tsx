@@ -3,6 +3,7 @@ import closeIcon from "../../assets/close.png"
 import { useDispatch } from "react-redux"
 import { addNewRequest } from "../../redux/requestSlice"
 import { useForm } from "react-hook-form"
+import { useEffect } from "react"
 
 type FormValues = {
   title: string
@@ -32,7 +33,7 @@ export default function ModalForm({
         id: Date.now().toString().slice(-6),
         title,
         description,
-        status: "PROCESS",
+        status: "NEW",
         date: Date.now(),
       }),
     )
@@ -40,6 +41,14 @@ export default function ModalForm({
     reset()
     setIsModalOpen(false)
   }
+
+  useEffect(() => {
+    document.body.style.overflow = "hidden"
+
+    return () => {
+      document.body.style.overflow = "auto"
+    }
+  }, [])
 
   return (
     <div className={styles.modal__wrapp} onClick={() => setIsModalOpen(false)}>

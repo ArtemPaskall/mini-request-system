@@ -1,48 +1,59 @@
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { RootState } from "../../redux/store"
 import RequestCard from "../RequestCard/RequestCard"
+import { DndContext, DragEndEvent } from "@dnd-kit/core"
+import RequestColumn from "../RequestColumn/RequestColumn"
+import { changeStatus } from "../../redux/requestSlice"
+import { RequestType } from "../../types"
 
 export default function Manager() {
   const request = useSelector((state: RootState) => state.request)
+  const dispatch = useDispatch()
 
   const requestsNew = request.filter((item) => item.status === "NEW")
   const requestsProcess = request.filter((item) => item.status === "PROCESS")
   const requestsDone = request.filter((item) => item.status === "DONE")
 
+  function handleDragEnd(event: DragEndEvent) {
+    const { active, over } = event
+
+    if (!over) return
+
+    dispatch(
+      changeStatus({
+        id: String(active.id),
+        status: over.id as RequestType["status"],
+      }),
+    )
+  }
+
   return (
-    <div className="container">
-      <div className="tab__content">
-        <h2 className="tab__header">Manager</h2>
-        <div className="tab__description">
-          &gt;&gt; Managing all incoming requests
-        </div>
-        <div className="tab__requesWrapp">
-          <div className="tab__new">
-            <div className="tab__title tab__titleNew">NEW</div>
-            <div className="tab__requestWrapp">
+    <DndContext onDragEnd={handleDragEnd}>
+      <div className="container">
+        <div className="tab__content">
+          <h2 className="tab__header">Manager</h2>
+          <div className="tab__description">
+            &gt;&gt; Managing all incoming requests
+          </div>
+          <div className="tab__requesWrapp">
+            <RequestColumn id="NEW" title="NEW">
               {requestsNew.map((item) => (
                 <RequestCard key={item.id} request={item} />
               ))}
-            </div>
-          </div>
-          <div className="tab__process">
-            <div className="tab__title tab__titleProcess">IN-PROCESS</div>
-            <div className="tab__requestWrapp">
+            </RequestColumn>
+            <RequestColumn id="PROCESS" title="PROCESS">
               {requestsProcess.map((item) => (
                 <RequestCard key={item.id} request={item} />
               ))}
-            </div>
-          </div>
-          <div className="tab__done">
-            <div className="tab__title tab__titleDone">DONE</div>
-            <div className="tab__requestWrapp">
+            </RequestColumn>
+            <RequestColumn id="DONE" title="DONE">
               {requestsDone.map((item) => (
                 <RequestCard key={item.id} request={item} />
               ))}
-            </div>
+            </RequestColumn>
           </div>
         </div>
       </div>
-    </div>
+    </DndContext>
   )
 }

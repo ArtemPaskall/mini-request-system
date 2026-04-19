@@ -43,21 +43,21 @@
   border-radius: 15px;
 }
 
-.tab__requesWrapp > .tab__new {
+.tab__requesWrapp > .tab__NEW {
   border: 2px solid #00e5ff;
   box-shadow:
     0 0 20px #00e5ff,
     inset 0 0 30px rgba(0, 0, 0, 0.5);
 }
 
-.tab__requesWrapp > .tab__process {
+.tab__requesWrapp > .tab__PROCESS {
   border: 2px solid #ffea00;
   box-shadow:
     0 0 20px #ffea00,
     inset 0 0 30px rgba(0, 0, 0, 0.5);
 }
 
-.tab__requesWrapp > .tab__done {
+.tab__requesWrapp > .tab__DONE {
   border: 2px solid #00ff66;
   box-shadow:
     0 0 20px #00ff66,
@@ -72,19 +72,19 @@
   text-transform: uppercase;
 }
 
-.tab__titleNew {
+.tab__titleNEW {
   color: #00e5ff;
   border-bottom: 1px dashed #00e5ff;
   padding-bottom: 5px;
 }
 
-.tab__titleProcess {
+.tab__titlePROCESS {
   color: #ffea00;
   border-bottom: 1px dashed #ffea00;
   padding-bottom: 5px;
 }
 
-.tab__titleDone {
+.tab__titleDONE {
   color: #00ff66;
   border-bottom: 1px dashed #00ff66;
   padding-bottom: 5px;
@@ -97,35 +97,35 @@
   margin-top: 10px;
 }
 
-.tab__new .request {
-  transition: all 0.3s;
+.tab__NEW .request {
+  transition: box-shadow 0.3s;
 }
 
-.tab__new .request:hover {
+.tab__NEW .request:hover {
   box-shadow:
     0 0 20px #00e5ff,
     inset 0 0 30px rgba(0, 0, 0, 0.5);
 }
 
-.tab__process .request {
+.tab__PROCESS .request {
   border: 2px solid #ffea00;
   border-left: 4px solid #ffea00;
-  transition: all 0.3s;
+  transition: box-shadow 0.3s;
 }
 
-.tab__process .request:hover {
+.tab__PROCESS .request:hover {
   box-shadow:
     0 0 20px #ffea00,
     inset 0 0 30px rgba(0, 0, 0, 0.5);
 }
 
-.tab__done .request {
+.tab__DONE .request {
   border: 2px solid #00ff66;
   border-left: 4px solid #00ff66;
-  transition: all 0.3s;
+  transition: box-shadow 0.3s;
 }
 
-.tab__done .request:hover {
+.tab__DONE .request:hover {
   box-shadow:
     0 0 20px #00ff66,
     inset 0 0 30px rgba(0, 0, 0, 0.5);
