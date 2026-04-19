@@ -1,13 +1,13 @@
 import { RequestType } from "../../types"
-import styles from "./Request.module.css"
+import "./Request.css"
 
 export default function RequestCard({ request }: { request: RequestType }) {
   return (
-    <div className={styles.request}>
-      <div className={styles.request__id}>ID: {request.id}</div>
-      <div className={styles.request__title}>{request.title}</div>
-      <div className={styles.request__description}>{request.description}</div>
-      <div className={styles.request__date}>
+    <div className={"request"}>
+      <div className={"request__id"}>ID: {request.id}</div>
+      <div className={"request__title"}>{request.title}</div>
+      <div className={"request__description"}>{request.description}</div>
+      <div className={"request__date"}>
         Date: {new Date(request.date).toLocaleString()}
       </div>
     </div>
