@@ -97,12 +97,36 @@
   margin-top: 10px;
 }
 
+.tab__new .request {
+  transition: all 0.3s;
+}
+
+.tab__new .request:hover {
+  box-shadow:
+    0 0 20px #00e5ff,
+    inset 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
 .tab__process .request {
   border: 2px solid #ffea00;
   border-left: 4px solid #ffea00;
+  transition: all 0.3s;
+}
+
+.tab__process .request:hover {
+  box-shadow:
+    0 0 20px #ffea00,
+    inset 0 0 30px rgba(0, 0, 0, 0.5);
 }
 
 .tab__done .request {
   border: 2px solid #00ff66;
   border-left: 4px solid #00ff66;
+  transition: all 0.3s;
+}
+
+.tab__done .request:hover {
+  box-shadow:
+    0 0 20px #00ff66,
+    inset 0 0 30px rgba(0, 0, 0, 0.5);
 }
