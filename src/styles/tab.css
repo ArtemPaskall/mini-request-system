@@ -74,20 +74,6 @@
 
 .tab__titleNEW {
   color: #00e5ff;
-  border-bottom: 1px dashed #00e5ff;
-  padding-bottom: 5px;
-}
-
-.tab__titlePROCESS {
-  color: #ffea00;
-  border-bottom: 1px dashed #ffea00;
-  padding-bottom: 5px;
-}
-
-.tab__titleDONE {
-  color: #00ff66;
-  border-bottom: 1px dashed #00ff66;
-  padding-bottom: 5px;
 }
 
 .tab__columnWrapp {
@@ -138,4 +124,31 @@
   letter-spacing: 3px;
   text-transform: uppercase;
   margin-top: 20px;
+}
+
+.tab__titleWrapp {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  border-bottom: 1px dashed #00e5ff;
+  padding-bottom: 10px;
+}
+
+.tab__PROCESS .tab__titleWrapp {
+  color: #ffea00;
+  border-bottom: 1px dashed #ffea00;
+  padding-bottom: 10px;
+}
+
+.tab__DONE .tab__titleWrapp {
+  color: #00ff66;
+  border-bottom: 1px dashed #00ff66;
+  padding-bottom: 10px;
+}
+
+.tab__searchWrapp {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

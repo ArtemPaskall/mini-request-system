@@ -1,0 +1,29 @@
+.sortSelect {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  padding: 8px 30px 8px 12px;
+  font-size: 12px;
+  border-radius: 3px;
+  border: 1px solid #7c7c7c;
+  background: radial-gradient(ellipse at top, #003300 0%, #001200 60%, #000 100%);
+  color: #a5a5a5;
+  font-family: "Courier New", monospace;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease;
+
+  background-image: url("data:image/svg+xml;utf8,<svg fill='none' stroke='white' stroke-width='2' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><polyline points='6 9 12 15 18 9'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px;
+}
+
+.sortSelect option {
+  background-color: #1f2937;
+  color: #fff;
+}
