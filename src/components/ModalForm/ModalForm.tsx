@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux"
 import { addNewRequest } from "../../redux/requestSlice"
 import { useForm } from "react-hook-form"
 import { useEffect } from "react"
+import { AppDispatch } from "../../redux/store"
 
 type FormValues = {
   title: string
@@ -21,8 +22,7 @@ export default function ModalForm({
     reset,
     formState: { errors },
   } = useForm<FormValues>()
-
-  const dispatch = useDispatch()
+  const dispatch = useDispatch<AppDispatch>()
 
   const formHandler = (data: FormValues) => {
     const title = data.title.trim()

@@ -18,6 +18,9 @@ const requestSlice = createSlice({
     addNewRequest(state, action: PayloadAction<RequestType>) {
       state.push(action.payload)
     },
+    deleteRequest(state, action: PayloadAction<string>) {
+      return state.filter((item) => item.id !== action.payload)
+    },
     changeStatus(
       state,
       action: PayloadAction<{ id: string; status: RequestType["status"] }>,
@@ -30,5 +33,6 @@ const requestSlice = createSlice({
   },
 })
 
-export const { addNewRequest, changeStatus } = requestSlice.actions
+export const { addNewRequest, changeStatus, deleteRequest } =
+  requestSlice.actions
 export default requestSlice.reducer

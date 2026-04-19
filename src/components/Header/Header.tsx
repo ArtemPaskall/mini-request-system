@@ -1,11 +1,12 @@
-import styles from "./Header.module.css";
-import { useDispatch, useSelector } from "react-redux";
-import { toggleMode } from "../../redux/modeSlice";
-import { RootState } from "../../redux/store";
+import styles from "./Header.module.css"
+import { useDispatch, useSelector } from "react-redux"
+import { toggleMode } from "../../redux/modeSlice"
+import { RootState } from "../../redux/store"
+import { AppDispatch } from "../../redux/store"
 
 export default function Header() {
-  const dispatch = useDispatch();
-  const mode = useSelector((state: RootState) => state.mode.mode);
+  const dispatch = useDispatch<AppDispatch>()
+  const mode = useSelector((state: RootState) => state.mode.mode)
 
   return (
     <div className={styles.header}>
@@ -33,5 +34,5 @@ export default function Header() {
         </div>
       </div>
     </div>
-  );
+  )
 }

@@ -4,6 +4,7 @@
   border-radius: 10px;
   padding: 10px;
   font-family: "Courier New", monospace;
+  position: relative;
 }
 
 .request__id {
@@ -33,4 +34,14 @@
   letter-spacing: 1px;
   margin-top: 10px;
   font-weight: 600;
+}
+
+.request__delete {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 23px;
+  height: 25px;
+  padding: 5px;
+  cursor: pointer;
 }

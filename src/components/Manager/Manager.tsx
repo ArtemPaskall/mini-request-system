@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
+import { AppDispatch } from "../../redux/store"
 import { RootState } from "../../redux/store"
 import RequestCard from "../RequestCard/RequestCard"
 import { DndContext, DragEndEvent } from "@dnd-kit/core"
@@ -8,7 +9,7 @@ import { RequestType } from "../../types"
 
 export default function Manager() {
   const request = useSelector((state: RootState) => state.request)
-  const dispatch = useDispatch()
+  const dispatch = useDispatch<AppDispatch>()
 
   const requestsNew = request.filter((item) => item.status === "NEW")
   const requestsProcess = request.filter((item) => item.status === "PROCESS")
@@ -37,19 +38,37 @@ export default function Manager() {
           </div>
           <div className="tab__requesWrapp">
             <RequestColumn id="NEW" title="NEW">
-              {requestsNew.map((item) => (
-                <RequestCard key={item.id} request={item} />
-              ))}
+              {requestsNew.length === 0 ? (
+                <div className="tab__emptyColumn">
+                  &gt;&gt; No active requests
+                </div>
+              ) : (
+                requestsNew.map((item) => (
+                  <RequestCard key={item.id} request={item} />
+                ))
+              )}
             </RequestColumn>
             <RequestColumn id="PROCESS" title="PROCESS">
-              {requestsProcess.map((item) => (
-                <RequestCard key={item.id} request={item} />
-              ))}
+              {requestsProcess.length === 0 ? (
+                <div className="tab__emptyColumn">
+                  &gt;&gt; No active requests
+                </div>
+              ) : (
+                requestsProcess.map((item) => (
+                  <RequestCard key={item.id} request={item} />
+                ))
+              )}
             </RequestColumn>
             <RequestColumn id="DONE" title="DONE">
-              {requestsDone.map((item) => (
-                <RequestCard key={item.id} request={item} />
-              ))}
+              {requestsDone.length === 0 ? (
+                <div className="tab__emptyColumn">
+                  &gt;&gt; No active requests
+                </div>
+              ) : (
+                requestsDone.map((item) => (
+                  <RequestCard key={item.id} request={item} />
+                ))
+              )}
             </RequestColumn>
           </div>
         </div>

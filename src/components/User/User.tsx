@@ -32,25 +32,43 @@ export default function User() {
             <div className="tab__NEW">
               <div className="tab__title tab__titleNEW">NEW</div>
               <div className="tab__requestWrapp">
-                {requestsNew.map((item) => (
-                  <RequestCard key={item.id} request={item} />
-                ))}
+                {requestsNew.length === 0 ? (
+                  <div className="tab__emptyColumn">
+                    &gt;&gt; No active requests
+                  </div>
+                ) : (
+                  requestsNew.map((item) => (
+                    <RequestCard key={item.id} request={item} />
+                  ))
+                )}
               </div>
             </div>
             <div className="tab__PROCESS">
               <div className="tab__title tab__titlePROCESS">IN-PROCESS</div>
               <div className="tab__requestWrapp">
-                {requestsProcess.map((item) => (
-                  <RequestCard key={item.id} request={item} />
-                ))}
+                {requestsProcess.length === 0 ? (
+                  <div className="tab__emptyColumn">
+                    &gt;&gt; No active requests
+                  </div>
+                ) : (
+                  requestsProcess.map((item) => (
+                    <RequestCard key={item.id} request={item} />
+                  ))
+                )}
               </div>
             </div>
             <div className="tab__DONE">
               <div className="tab__title tab__titleDONE">DONE</div>
               <div className="tab__requestWrapp">
-                {requestsDone.map((item) => (
-                  <RequestCard key={item.id} request={item} />
-                ))}
+                {requestsDone.length === 0 ? (
+                  <div className="tab__emptyColumn">
+                    &gt;&gt; No active requests
+                  </div>
+                ) : (
+                  requestsDone.map((item) => (
+                    <RequestCard key={item.id} request={item} />
+                  ))
+                )}
               </div>
             </div>
           </div>
