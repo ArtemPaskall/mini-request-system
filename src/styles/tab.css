@@ -170,6 +170,27 @@
   }
 }
 
+.tab__overflowWrapp {
+  scrollbar-color: #00e5ff transparent;
+}
+
+.tab__overflowWrapp::-webkit-scrollbar {
+  height: 8px;
+}
+
+.tab__overflowWrapp::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.tab__overflowWrapp::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #00e5ff, #ff00ea);
+  border-radius: 10px;
+}
+
+.tab__overflowWrapp::-webkit-scrollbar-thumb:hover {
+  background: #00e5ff;
+}
+
 @media (max-width: 1220px) {
   .tab__requestWrapp {
     padding: 20px;
