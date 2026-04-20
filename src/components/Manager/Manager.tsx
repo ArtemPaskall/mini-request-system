@@ -42,14 +42,17 @@ export default function Manager() {
             <SearchByTitle search={search} setSearch={setSearch} />
           </div>
           <div className="tab__description">&gt;&gt; Managing all incoming requests</div>
-          <div className="tab__requestWrapp">
-            <RequestColumn id="NEW" title="NEW" requestsArray={requestsNew}></RequestColumn>
-            <RequestColumn
-              id="PROCESS"
-              title="IN-PROCESS"
-              requestsArray={requestsProcess}
-            ></RequestColumn>
-            <RequestColumn id="DONE" title="DONE" requestsArray={requestsDone}></RequestColumn>
+
+          <div className="tab__overflowWrapp">
+            <div className="tab__requestWrapp">
+              <RequestColumn id="NEW" title="NEW" requestsArray={requestsNew}></RequestColumn>
+              <RequestColumn
+                id="PROCESS"
+                title="IN-PROCESS"
+                requestsArray={requestsProcess}
+              ></RequestColumn>
+              <RequestColumn id="DONE" title="DONE" requestsArray={requestsDone}></RequestColumn>
+            </div>
           </div>
         </div>
       </div>
