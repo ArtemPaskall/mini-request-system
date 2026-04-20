@@ -172,7 +172,7 @@
 
 @media (max-width: 1220px) {
   .tab__requestWrapp {
-    overflow-x: auto;
-    flex-wrap: nowrap;
+    /* overflow-x: auto;
+    flex-wrap: nowrap; */
   }
 }
