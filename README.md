@@ -33,84 +33,23 @@ npm run dev
 
 ## Project Description
 
-This project was developed as a test assignment using the technologies listed above.
+This project is built using the technologies listed above.
 
-It demonstrates a simple request management system with two separate modes: **User** and **Manager**, each providing different functionality and UI layout.
+It has 2 modes: **USER** and **MANAGER**, which can be switched using a toggle in the header.  
+Each mode has its own functionality and layout.
 
-### 🚀 Project Overview
+Each layout consists of 3 columns with different request statuses: **New**, **In Progress**, and **Done**.
 
-The application consists of a board with three main columns representing request statuses:
+The user has the ability to create new requests.  
+By clicking the button, a modal window with a form appears.
 
-- **New**
-- **In Progress**
-- **Done**
+The form includes basic validation using React Hook Form (minimum and maximum values).
 
-Each request moves through these stages depending on user or manager actions.
+After submission, the request is added to the **New** column.
 
----
+The user can also edit the title of an existing request if it is still in the **New** status.
 
-### 🔄 Modes
+The manager can change the request status using drag and drop by moving items between columns.  
+They can also delete requests.
 
-The system has two modes that can be switched via a toggle in the header:
-
-### 👤 User Mode
-
-In User mode, the main functionality is focused on creating new requests.
-
-**Features:**
-
-- Create new requests via a modal form
-- Form is built with **React Hook Form**
-- Basic validation included:
-  - Minimum length
-  - Maximum length
-- After submission, a new request is automatically added to the **"New"** column
-- Ability to sort requests by date in each column
-- Search requests by title
-
----
-
-### 🧑‍💼 Manager Mode
-
-Manager mode is focused on managing existing requests.
-
-**Features:**
-
-- Change request status using **drag and drop** between columns
-- Delete requests
-- Sort requests by date in each column
-- Search requests by title
-
----
-
-### 🧾 Request Workflow
-
-1. User creates a request via modal form
-2. After submitting, the request appears in the **New** column
-3. Manager can move it across:
-   - New → In Progress → Done
-4. Manager can also delete requests if needed
-
----
-
-### 🔍 Additional Features
-
-- Two independent UI layouts for each mode
-- Drag & drop interaction for status management
-- Sorting by creation date
-- Search functionality by request title
-- Form validation using React Hook Form
-
----
-
-### 📌 Notes
-
-This project was built as a test task to demonstrate:
-
-- Component-based architecture
-- State management
-- UI/UX separation by roles
-- Drag & drop interactions
-- Form handling and validation
-
----
+Both modes allow sorting requests by date inside each column, as well as searching requests by title.
