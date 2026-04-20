@@ -1,73 +1,116 @@
-# React + TypeScript + Vite
+# Mini Request System Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a test assignment built using React
 
-Currently, two official plugins are available:
+## Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Check out the live demo of the project (deployed on Vercel) [HERE](https://mini-request-system-five.vercel.app).
 
-## React Compiler
+## 🛠 Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React.js
+- Redux, Redux Toolkit
+- TypeScript
+- react-hook-form
 
-## Expanding the ESLint configuration
+## 🚀 How to Run the Project Locally
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Follow these steps to download, install, and run the project on your machine:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+```bash
+# 1. Clone the GitHub repository to your local machine
+git clone https://github.com/ArtemPaskall/mini-request-system.git
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+# 2. Navigate into the project directory
+cd YOUR-REPOSITORY-NAME
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# 3. Install all required dependencies from package.json
+npm install
+
+# 4. Start the development server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Project Description
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+This project was developed as a test assignment using the technologies listed above.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+It demonstrates a simple request management system with two separate modes: **User** and **Manager**, each providing different functionality and UI layout.
+
+### 🚀 Project Overview
+
+The application consists of a board with three main columns representing request statuses:
+
+- **New**
+- **In Progress**
+- **Done**
+
+Each request moves through these stages depending on user or manager actions.
+
+---
+
+### 🔄 Modes
+
+The system has two modes that can be switched via a toggle in the header:
+
+### 👤 User Mode
+
+In User mode, the main functionality is focused on creating new requests.
+
+**Features:**
+
+- Create new requests via a modal form
+- Form is built with **React Hook Form**
+- Basic validation included:
+  - Minimum length
+  - Maximum length
+- After submission, a new request is automatically added to the **"New"** column
+- Ability to sort requests by date in each column
+- Search requests by title
+
+---
+
+### 🧑‍💼 Manager Mode
+
+Manager mode is focused on managing existing requests.
+
+**Features:**
+
+- Change request status using **drag and drop** between columns
+- Delete requests
+- Sort requests by date in each column
+- Search requests by title
+
+---
+
+### 🧾 Request Workflow
+
+1. User creates a request via modal form
+2. After submitting, the request appears in the **New** column
+3. Manager can move it across:
+   - New → In Progress → Done
+4. Manager can also delete requests if needed
+
+---
+
+### 🔍 Additional Features
+
+- Two independent UI layouts for each mode
+- Drag & drop interaction for status management
+- Sorting by creation date
+- Search functionality by request title
+- Form validation using React Hook Form
+
+---
+
+### 📌 Notes
+
+This project was built as a test task to demonstrate:
+
+- Component-based architecture
+- State management
+- UI/UX separation by roles
+- Drag & drop interactions
+- Form handling and validation
+
+---
