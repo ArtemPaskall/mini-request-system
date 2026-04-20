@@ -1,20 +1,16 @@
 import { configureStore } from "@reduxjs/toolkit"
 import modeSlice from "./modeSlice"
-import requestSlice from "./requestSlice"
-
-const loadState = () => {
-  if (typeof window === "undefined") return undefined
-
-  const data = localStorage.getItem("request")
-  return data ? { request: JSON.parse(data) } : undefined
-}
+import requesSlice from "./requestSlice"
 
 export const store = configureStore({
   reducer: {
     mode: modeSlice,
-    request: requestSlice,
+    request: requesSlice,
   },
-  preloadedState: loadState(),
+})
+
+store.subscribe(() => {
+  localStorage.setItem("request", JSON.stringify(store.getState().request))
 })
 
 export type RootState = ReturnType<typeof store.getState>
