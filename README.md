@@ -1,6 +1,6 @@
 # Mini Request System Project
 
-This is a test assignment built using React
+This is a test assignment built with React.
 
 ## Demo
 
