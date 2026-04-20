@@ -31,25 +31,45 @@ npm install
 npm run dev
 ```
 
-## Project Description
+### 📌 Project Description
 
 This project is built using the technologies listed above.
 
-It has 2 modes: **USER** and **MANAGER**, which can be switched using a toggle in the header.  
-Each mode has its own functionality and layout.
+It includes two main modes: **USER** and **MANAGER**, which can be switched via a toggle in the header.  
+Each mode provides its own functionality and layout.
 
-Each layout consists of 3 columns with different request statuses: **New**, **In Progress**, and **Done**.
+---
 
-The user has the ability to create new requests.  
-By clicking the button, a modal window with a form appears.
+## 🧩 Structure
 
-The form includes basic validation using React Hook Form (minimum and maximum values).
+Each layout consists of **three columns** with different request statuses:
 
-After submission, the request is added to the **New** column.
+- 🆕 **New**
+- ⚙️ **In Progress**
+- ✅ **Done**
 
-The user can also edit the title of an existing request if it is still in the **New** status.
+---
 
-The manager can change the request status using drag and drop by moving items between columns.  
-They can also delete requests.
+### 👤 User Features
 
-Both modes allow sorting requests by date inside each column, as well as searching requests by title.
+- Ability to create new requests
+- Opens a **modal window with a form** on button click
+- Form includes basic validation using **React Hook Form** (min/max constraints)
+- After submission, the request is added to the **New** column
+- Can edit the **title** of a request while it is still in the **New** status
+
+---
+
+### 🧑‍💼 Manager Features
+
+- Can change request status using **drag & drop** between columns
+- Can **delete** requests
+
+---
+
+### 🔍 Shared Features
+
+Both modes support:
+
+- 📅 Sorting requests by date within each column
+- 🔎 Searching requests by title
