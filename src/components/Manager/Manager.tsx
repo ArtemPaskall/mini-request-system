@@ -6,12 +6,19 @@ import RequestColumn from "../RequestColumn/RequestColumn"
 import { changeStatus } from "../../redux/requestSlice"
 import { RequestType } from "../../types"
 import splitRequestsByStatus from "../../utils/splitRequestsByStatus"
+import SearchByTitle from "../SearchByTitle/SearchByTitle"
+import { useState } from "react"
 
 export default function Manager() {
   const request = useSelector((state: RootState) => state.request)
   const dispatch = useDispatch<AppDispatch>()
+  const [search, setSearch] = useState("")
 
-  const { requestsNew, requestsProcess, requestsDone } = splitRequestsByStatus(request)
+  const filteredRequests = request.filter((item) =>
+    item.title.toLowerCase().startsWith(search.toLowerCase()),
+  )
+
+  const { requestsNew, requestsProcess, requestsDone } = splitRequestsByStatus(filteredRequests)
 
   function handleDragEnd(event: DragEndEvent) {
     const { active, over } = event
@@ -30,7 +37,10 @@ export default function Manager() {
     <DndContext onDragEnd={handleDragEnd}>
       <div className="container">
         <div className="tab__content">
-          <h2 className="tab__header">Manager</h2>
+          <div className="tab__searchWrapp">
+            <h2 className="tab__header">Manager</h2>
+            <SearchByTitle search={search} setSearch={setSearch} />
+          </div>
           <div className="tab__description">&gt;&gt; Managing all incoming requests</div>
           <div className="tab__requestWrapp">
             <RequestColumn id="NEW" title="NEW" requestsArray={requestsNew}></RequestColumn>

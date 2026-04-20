@@ -12,8 +12,9 @@ export default function User() {
   const request = useSelector((state: RootState) => state.request)
   const [search, setSearch] = useState("")
 
+
   const filteredRequests = request.filter((item) =>
-    item.title.toLowerCase().includes(search.toLowerCase()),
+    item.title.toLowerCase().startsWith(search.toLowerCase()),
   )
 
   const { requestsNew, requestsProcess, requestsDone } = splitRequestsByStatus(filteredRequests)
@@ -32,7 +33,7 @@ export default function User() {
           </button>
 
           <div className="tab__requestWrapp">
-            <RequestColumn id="NEW" title="NEW" requestsArray={requestsNew}></RequestColumn>
+            <RequestColumn id="NEW" title="NEW" requestsArray={requestsNew} ></RequestColumn>
             <RequestColumn
               id="PROCESS"
               title="IN-PROCESS"
