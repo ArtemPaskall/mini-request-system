@@ -9,6 +9,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 20px;
 }
 
 .header__logo {
@@ -17,7 +18,7 @@
   letter-spacing: 2px;
   line-height: 0.95;
   font-weight: bold;
-  font-size: 28px;
+  font-size: clamp(18px, 3vw, 28px);
   background: linear-gradient(90deg, #ffd700, #ffeb3b, #ffc107);
   -webkit-background-clip: text;
   background-clip: text;
@@ -56,7 +57,7 @@
 }
 
 .header__modeTitle {
-  font-size: 18px;
+  font-size: clamp(14px, 2vw, 18px);
   font-weight: 600;
   font-family: "Courier New", monospace;
   color: #acacac;
@@ -67,4 +68,28 @@
 
 .activeManager {
   color: #ff00ea;
+}
+
+@media (max-width: 760px) {
+  .header__switcher {
+    padding: 2px;
+    width: 60px;
+    height: 27px;
+  }
+  .header__switcherButton {
+    width: 20px;
+    height: 20px;
+  }
+  .header__switcherUser .header__switcherButton {
+    transform: translateX(33px);
+  }
+}
+
+@media (max-width: 540px) {
+  .header__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
 }

@@ -19,3 +19,14 @@
   letter-spacing: 3px;
   text-transform: capitalize;
 }
+
+@media (max-width: 640px) {
+  .search {
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  .search::placeholder {
+    font-size: 11px;
+  }
+}

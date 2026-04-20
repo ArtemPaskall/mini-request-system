@@ -3,12 +3,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 
 :root {
-  --bg-grad: radial-gradient(
-    ellipse at top,
-    #003300 0%,
-    #001200 60%,
-    #000 100%
-  );
+  --bg-grad: radial-gradient(ellipse at top, #003300 0%, #001200 60%, #000 100%);
   --shadow: 0 0 30px var(--main), inset 0 -20px 40px rgba(255, 0, 234, 0.1);
   --main: #00ff66;
 }
@@ -24,12 +19,7 @@ body {
 
 .theme.theme-manager {
   background: var(--bg-grad);
-  --bg-grad: radial-gradient(
-    ellipse at top,
-    #1a0540 0%,
-    #0a0320 60%,
-    #000 100%
-  );
+  --bg-grad: radial-gradient(ellipse at top, #1a0540 0%, #0a0320 60%, #000 100%);
   --shadow: 0 0 30px var(--main), inset 0 -20px 40px rgba(255, 0, 234, 0.1);
   --main: #ff00ea;
 }
@@ -37,6 +27,11 @@ body {
 .container {
   margin: 0 auto;
   width: 100%;
-  /* max-width: 1240px; */
   padding: 0 40px;
+}
+
+@media (max-width: 1120px) {
+  .container {
+    padding: 0 20px;
+  }
 }
