@@ -1,0 +1,17 @@
+export const EN = {
+  logo: "MINI-REQUEST-SYSTEM",
+  user: "User",
+  manager: "Manager",
+  userDescription: ">> Tracking your submitted tickets",
+  newRequest: "+ NEW REQUEST",
+  searchByTitle: "Search by Title",
+  statusNew: "NEW",
+  statusProcess: "IN-PROCESS",
+  statusDone: "DONE",
+  sortByDate: "Sort by date",
+  sortOld: "First old",
+  sortNew: "First new",
+  emptyColumn: ">> No active requests",
+  date: "Date:",
+  managerDescription: ">> Managing all incoming requests",
+}

@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit"
 import modeSlice from "./modeSlice"
+import langSlice from "./langSlice"
 import requesSlice from "./requestSlice"
 
 export const store = configureStore({
   reducer: {
     mode: modeSlice,
     request: requesSlice,
+    lang: langSlice,
   },
 })
 

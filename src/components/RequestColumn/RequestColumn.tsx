@@ -3,18 +3,25 @@ import { RequestType } from "../../types"
 import RequestCard from "../RequestCard/RequestCard"
 import { useState } from "react"
 import styles from "./RequestColumn.module.css"
+import { useTranslation } from "../../utils/useTranslation"
 
 type SortType = "OLD" | "NEW" | ""
 
+const statusTitleKey: Record<RequestType["status"], "statusNew" | "statusProcess" | "statusDone"> =
+  {
+    NEW: "statusNew",
+    PROCESS: "statusProcess",
+    DONE: "statusDone",
+  }
+
 export default function RequestColumn({
   id,
-  title,
   requestsArray,
 }: {
   id: RequestType["status"]
-  title: string
   requestsArray: RequestType[]
 }) {
+  const t = useTranslation()
   const [sort, setSort] = useState<SortType>("")
   const { setNodeRef } = useDroppable({
     id,
@@ -28,23 +35,23 @@ export default function RequestColumn({
   return (
     <div ref={setNodeRef} className={`tab__${id}`}>
       <div className={"tab__titleWrapp"}>
-        <div className={`tab__title tab__title${id}`}>{title}</div>
+        <div className={`tab__title tab__title${id}`}>{t(statusTitleKey[id])}</div>
         <select
           className={styles.sortSelect}
           value={sort}
           onChange={(e) => setSort(e.target.value as SortType)}
         >
           <option disabled hidden value="">
-            Sort by date
+            {t("sortByDate")}
           </option>
-          <option value="OLD">First old</option>
-          <option value="NEW">First new</option>
+          <option value="OLD">{t("sortOld")}</option>
+          <option value="NEW">{t("sortNew")}</option>
         </select>
       </div>
 
       <div className="tab__columnWrapp">
         {sortedArray.length === 0 ? (
-          <div className="tab__emptyColumn">&gt;&gt; No active requests</div>
+          <div className="tab__emptyColumn">{t("emptyColumn")}</div>
         ) : (
           sortedArray.map((item) => <RequestCard key={item.id} request={item} />)
         )}

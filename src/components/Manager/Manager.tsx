@@ -8,10 +8,12 @@ import { RequestType } from "../../types"
 import splitRequestsByStatus from "../../utils/splitRequestsByStatus"
 import SearchByTitle from "../SearchByTitle/SearchByTitle"
 import { useState } from "react"
+import { useTranslation } from "../../utils/useTranslation"
 
 export default function Manager() {
   const request = useSelector((state: RootState) => state.request)
   const dispatch = useDispatch<AppDispatch>()
+  const t = useTranslation()
   const [search, setSearch] = useState("")
 
   const filteredRequests = request.filter((item) =>
@@ -38,20 +40,16 @@ export default function Manager() {
       <div className="container">
         <div className="tab__content">
           <div className="tab__searchWrapp">
-            <h2 className="tab__header">Manager</h2>
+            <h2 className="tab__header">{t("manager")}</h2>
             <SearchByTitle search={search} setSearch={setSearch} />
           </div>
-          <div className="tab__description">&gt;&gt; Managing all incoming requests</div>
+          <div className="tab__description">{t("managerDescription")}</div>
 
           <div className="tab__overflowWrapp">
             <div className="tab__requestWrapp">
-              <RequestColumn id="NEW" title="NEW" requestsArray={requestsNew}></RequestColumn>
-              <RequestColumn
-                id="PROCESS"
-                title="IN-PROCESS"
-                requestsArray={requestsProcess}
-              ></RequestColumn>
-              <RequestColumn id="DONE" title="DONE" requestsArray={requestsDone}></RequestColumn>
+              <RequestColumn id="NEW" requestsArray={requestsNew} />
+              <RequestColumn id="PROCESS" requestsArray={requestsProcess} />
+              <RequestColumn id="DONE" requestsArray={requestsDone} />
             </div>
           </div>
         </div>

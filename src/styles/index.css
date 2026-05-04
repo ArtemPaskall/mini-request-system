@@ -6,6 +6,8 @@
   --bg-grad: radial-gradient(ellipse at top, #003300 0%, #001200 60%, #000 100%);
   --shadow: 0 0 30px var(--main), inset 0 -20px 40px rgba(255, 0, 234, 0.1);
   --main: #00ff66;
+  --header-manager: #00ff66;
+  --logo-color-text: linear-gradient(90deg, #ffd700, #ffeb3b, #ffc107);
 }
 
 body {
@@ -18,10 +20,11 @@ body {
 }
 
 .theme.theme-manager {
-  background: var(--bg-grad);
-  --bg-grad: radial-gradient(ellipse at top, #1a0540 0%, #0a0320 60%, #000 100%);
+  --bg-grad: radial-gradient(ellipse at top, #e8e0f5 0%, #f2eeff 60%, #ffffff 100%);
   --shadow: 0 0 30px var(--main), inset 0 -20px 40px rgba(255, 0, 234, 0.1);
-  --main: #ff00ea;
+  --main: #ffffff;
+  --header-manager: rgb(10, 48, 236);
+  --logo-color-text: linear-gradient(90deg, #1d1d1a, #1d1d1d, #060606);
 }
 
 .container {

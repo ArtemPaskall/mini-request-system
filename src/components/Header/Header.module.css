@@ -19,11 +19,19 @@
   line-height: 0.95;
   font-weight: bold;
   font-size: clamp(18px, 3vw, 28px);
-  background: linear-gradient(90deg, #ffd700, #ffeb3b, #ffc107);
+  background: var(--logo-color-text);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   filter: drop-shadow(0 0 8px #ffd700);
+}
+
+.switcherWrapp {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 40px;
 }
 
 .header__switcherWrapp {
@@ -41,6 +49,11 @@
   height: 34px;
   cursor: pointer;
   box-shadow: var(--shadow);
+}
+
+.darkThemeIcon {
+  width: 20px;
+  height: 20px;
 }
 
 .header__switcherButton {
@@ -75,6 +88,9 @@
     padding: 2px;
     width: 60px;
     height: 27px;
+  }
+  .switcherWrapp {
+    flex-direction: column;
   }
   .header__switcherButton {
     width: 20px;

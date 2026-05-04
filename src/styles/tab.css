@@ -1,3 +1,4 @@
+
 .tab__content {
   margin: 30px 0;
   color: white;
@@ -13,7 +14,7 @@
   font-size: 44px;
   font-size: clamp(32px, 6vw, 44px);
   text-transform: uppercase;
-  background: var(--main);
+  background: var(--header-manager);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -38,6 +39,7 @@
 }
 
 .tab__requestWrapp > div {
+  background: radial-gradient(ellipse at top, #1a0540 0%, #0a0320 60%, #000 100%);
   width: 100%;
   border: 2px solid white;
   padding: 10px;

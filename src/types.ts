@@ -2,6 +2,8 @@ export interface ModeType {
   mode: "USER" | "MANAGER"
 }
 
+export type Lang = "UK" | "EN"
+
 export interface RequestType {
   id: string
   title: string

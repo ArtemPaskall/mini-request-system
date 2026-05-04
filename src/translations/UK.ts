@@ -1,0 +1,17 @@
+export const UK = {
+  logo: "МІНІ-СИСТЕМА-ЗАПИТІВ",
+  user: "Користувач",
+  manager: "Менеджер",
+  newRequest: "+ НОВИЙ ЗАПИТ",
+  userDescription: ">> Відстеження ваших поданих запитів",
+  searchByTitle: "Пошук за назвою",
+  statusNew: "НОВІ",
+  statusProcess: "В ПРОЦЕСІ",
+  statusDone: "ВИКОНАНІ",
+  sortByDate: "Сортувати за датою",
+  sortOld: "Спочатку старі",
+  sortNew: "Спочатку нові",
+  emptyColumn: ">> Немає активних запитів",
+  date: "Дата:",
+  managerDescription: ">> Керування всіма вхідними запитами",
+}

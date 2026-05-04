@@ -8,10 +8,12 @@ import deleteIcon from "../../assets/delete.png"
 import { deleteRequest, saveNewTitleValue } from "../../redux/requestSlice"
 import { useState } from "react"
 import editIcon from "../../assets/edit.png"
+import { useTranslation } from "../../utils/useTranslation"
 
 export default function RequestCard({ request }: { request: RequestType }) {
   const dispatch = useDispatch<AppDispatch>()
   const mode = useSelector((state: RootState) => state.mode.mode)
+  const t = useTranslation()
   const { attributes, listeners, setNodeRef, transform } = useDraggable({
     id: request.id,
   })
@@ -60,7 +62,7 @@ export default function RequestCard({ request }: { request: RequestType }) {
         )}
       </div>
       <div className={"request__description"}>{request.description}</div>
-      <div className={"request__date"}>Date: {new Date(request.date).toLocaleString()}</div>
+      <div className={"request__date"}>{t("date")} {new Date(request.date).toLocaleString()}</div>
       {mode === "MANAGER" && (
         <img
           src={deleteIcon}
