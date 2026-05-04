@@ -15,6 +15,7 @@ export default function Manager() {
   const dispatch = useDispatch<AppDispatch>()
   const t = useTranslation()
   const [search, setSearch] = useState("")
+  const [activeTab, setActiveTab] = useState<"board" | "logs">("board")
 
   const filteredRequests = request.filter((item) =>
     item.title.toLowerCase().startsWith(search.toLowerCase()),
@@ -45,13 +46,60 @@ export default function Manager() {
           </div>
           <div className="tab__description">{t("managerDescription")}</div>
 
-          <div className="tab__overflowWrapp">
-            <div className="tab__requestWrapp">
-              <RequestColumn id="NEW" requestsArray={requestsNew} />
-              <RequestColumn id="PROCESS" requestsArray={requestsProcess} />
-              <RequestColumn id="DONE" requestsArray={requestsDone} />
-            </div>
+          <div className="tab__tabs">
+            <button
+              className={`tab__tabBtn ${activeTab === "board" ? "tab__tabBtn--active" : ""}`}
+              onClick={() => setActiveTab("board")}
+            >
+              {t("tabBoard")}
+            </button>
+            <button
+              className={`tab__tabBtn ${activeTab === "logs" ? "tab__tabBtn--active" : ""}`}
+              onClick={() => setActiveTab("logs")}
+            >
+              {t("tabLogs")}
+            </button>
           </div>
+
+          {activeTab === "board" && (
+            <div className="tab__overflowWrapp">
+              <div className="tab__requestWrapp">
+                <RequestColumn id="NEW" requestsArray={requestsNew} />
+                <RequestColumn id="PROCESS" requestsArray={requestsProcess} />
+                <RequestColumn id="DONE" requestsArray={requestsDone} />
+              </div>
+            </div>
+          )}
+
+          {activeTab === "logs" && (() => {
+            const logs: { role: string; time: number; action: string }[] = JSON.parse(localStorage.getItem("logs") || "[]")
+            return (
+              <div className="tab__logs">
+                {logs.length === 0 ? (
+                  <p className="tab__logsEmpty">{t("logEmpty")}</p>
+                ) : (
+                  <table className="tab__logsTable">
+                    <thead>
+                      <tr>
+                        <th>{t("logRole")}</th>
+                        <th>{t("logTime")}</th>
+                        <th>{t("logAction")}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {[...logs].reverse().map((log, i) => (
+                        <tr key={i}>
+                          <td>{log.role}</td>
+                          <td>{new Date(log.time).toLocaleString()}</td>
+                          <td>{log.action}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                )}
+              </div>
+            )
+          })()}
         </div>
       </div>
     </DndContext>

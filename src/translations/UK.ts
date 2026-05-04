@@ -24,4 +24,10 @@ export const UK = {
   validationMinDescription: "Мінімум 5 символів",
   validationMaxDescription: "Максимум 200 символів",
   addRequest: "додати запит",
+  tabBoard: "Дошка",
+  tabLogs: "Логи",
+  logEmpty: "Логів ще немає",
+  logRole: "Роль",
+  logTime: "Час",
+  logAction: "Дія",
 }

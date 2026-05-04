@@ -24,4 +24,10 @@ export const EN = {
   validationMinDescription: "Minimum 5 characters",
   validationMaxDescription: "Maximum 200 characters",
   addRequest: "add request",
+  tabBoard: "Board",
+  tabLogs: "Logs",
+  logEmpty: "No logs yet",
+  logRole: "Role",
+  logTime: "Time",
+  logAction: "Action",
 }

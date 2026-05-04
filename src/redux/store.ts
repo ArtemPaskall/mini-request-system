@@ -5,12 +5,12 @@ import requesSlice from "./requestSlice"
 import themeSlice from "./themeSlice"
 
 const loggerMiddleware: Middleware = (store) => (next) => (action) => {
-  console.group(`[Action] ${(action as any).type}`)
-  console.log("Payload:", (action as any).payload)
-  console.log("State before:", store.getState())
   const result = next(action)
-  console.log("State after:", store.getState())
-  console.groupEnd()
+  const type = (action as { type: string }).type
+  const role = store.getState().mode.mode as "USER" | "MANAGER"
+  const logs = JSON.parse(localStorage.getItem("logs") || "[]")
+  logs.push({ role, time: Date.now(), action: type })
+  localStorage.setItem("logs", JSON.stringify(logs))
   return result
 }
 
