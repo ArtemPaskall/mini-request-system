@@ -5,6 +5,7 @@ import { addNewRequest } from "../../redux/requestSlice"
 import { useForm } from "react-hook-form"
 import { useEffect } from "react"
 import { AppDispatch } from "../../redux/store"
+import { useTranslation } from "../../utils/useTranslation"
 
 type FormValues = {
   title: string
@@ -23,6 +24,7 @@ export default function ModalForm({
     formState: { errors },
   } = useForm<FormValues>()
   const dispatch = useDispatch<AppDispatch>()
+  const t = useTranslation()
 
   const formHandler = (data: FormValues) => {
     const title = data.title.trim()
@@ -63,23 +65,23 @@ export default function ModalForm({
           onClick={() => setIsModalOpen(false)}
         />
 
-        <h2 className={styles.modal__header}>New Request</h2>
+        <h2 className={styles.modal__header}>{t("modalHeader")}</h2>
 
         <div className={styles.modal__description}>
-          &gt;&gt; Fill in the details below
+          {t("modalDescription")}
         </div>
 
         <form
           className={styles.modal__form}
           onSubmit={handleSubmit(formHandler)}
         >
-          <label htmlFor="title">Request Title</label>
+          <label htmlFor="title">{t("labelTitle")}</label>
           <input
             {...register("title", {
-              required: "Enter title",
+              required: t("validationEnterTitle"),
               minLength: {
                 value: 3,
-                message: "Minimum 3 characters",
+                message: t("validationMinTitle"),
               },
             })}
             type="text"
@@ -89,17 +91,17 @@ export default function ModalForm({
             {errors.title && <p>&gt;&gt; {errors.title.message}</p>}
           </div>
 
-          <label htmlFor="description">Description</label>
+          <label htmlFor="description">{t("labelDescription")}</label>
           <textarea
             {...register("description", {
-              required: "Enter description",
+              required: t("validationEnterDescription"),
               minLength: {
                 value: 5,
-                message: "Minimum 5 characters",
+                message: t("validationMinDescription"),
               },
               maxLength: {
                 value: 200,
-                message: "Maximum 200 characters",
+                message: t("validationMaxDescription"),
               },
             })}
             id="description"
@@ -111,7 +113,7 @@ export default function ModalForm({
           </div>
 
           <button type="submit" className={styles.modal__button}>
-            add request
+            {t("addRequest")}
           </button>
         </form>
       </div>
