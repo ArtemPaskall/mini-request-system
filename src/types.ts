@@ -4,6 +4,8 @@ export interface ModeType {
 
 export type Lang = "UK" | "EN"
 
+export type Theme = "DARK" | "LIGHT"
+
 export interface RequestType {
   id: string
   title: string

@@ -6,9 +6,10 @@ import { RootState } from "./redux/store"
 
 function App() {
   const mode = useSelector((state: RootState) => state.mode.mode)
+  const theme = useSelector((state: RootState) => state.theme)
 
   return (
-    <div className={`${"theme"}  ${mode !== "USER" ? "theme-manager" : ""}`}>
+    <div className={`${"theme"}  ${theme !== "DARK" ? "theme-manager" : ""}`}>
       <Header></Header>
 
       {mode === "USER" && <User />}

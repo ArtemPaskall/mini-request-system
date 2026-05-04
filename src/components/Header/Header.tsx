@@ -2,15 +2,18 @@ import styles from "./Header.module.css"
 import { useDispatch, useSelector } from "react-redux"
 import { toggleMode } from "../../redux/modeSlice"
 import { toggleLang } from "../../redux/langSlice"
+import { toggleTheme } from "../../redux/themeSlice"
 import { RootState } from "../../redux/store"
 import { AppDispatch } from "../../redux/store"
 import { useTranslation } from "../../utils/useTranslation"
 import DarkThemeIcon from "../../assets/moon.svg"
+import LightThemeIcon from "../../assets/sun.svg"
 
 export default function Header() {
   const dispatch = useDispatch<AppDispatch>()
   const mode = useSelector((state: RootState) => state.mode.mode)
   const lang = useSelector((state: RootState) => state.lang)
+  const theme = useSelector((state: RootState) => state.theme)
   const t = useTranslation()
 
   return (
@@ -21,20 +24,28 @@ export default function Header() {
           <div className={styles.switcherWrapp}>
             <div className={styles.header__switcherWrapp}>
               <div
-                className={`${styles.header__modeTitle} ${lang === "UK" ? styles.activeUser : ""}`}
+                className={`${styles.header__modeTitle} ${theme === "DARK" ? styles.activeUser : ""}`}
               >
-                <img src={DarkThemeIcon} alt="" className={styles.darkThemeIcon} />
+                <img
+                  src={DarkThemeIcon}
+                  alt=""
+                  className={`${styles.darkThemeIcon} ${theme !== "DARK" ? styles.light : ""}`}
+                />
               </div>
               <div
-                className={`${styles.header__switcher} ${lang !== "UK" ? styles.header__switcherUser : ""}`}
-                onClick={() => dispatch(toggleLang())}
+                className={`${styles.header__switcher} ${theme !== "DARK" ? styles.header__switcherUser : ""}`}
+                onClick={() => dispatch(toggleTheme())}
               >
                 <div className={styles.header__switcherButton}></div>
               </div>
               <div
-                className={`${styles.header__modeTitle} ${lang === "EN" ? styles.activeManager : ""}`}
+                className={`${styles.header__modeTitle} ${theme === "LIGHT" ? styles.activeManager : ""}`}
               >
-                EN
+                <img
+                  src={LightThemeIcon}
+                  alt=""
+                  className={`${styles.darkThemeIcon} ${theme !== "DARK" ? styles.light : ""}`}
+                />
               </div>
             </div>
             <div className={styles.header__switcherWrapp}>

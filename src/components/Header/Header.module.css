@@ -54,6 +54,11 @@
 .darkThemeIcon {
   width: 20px;
   height: 20px;
+  filter: brightness(0) invert(1);
+}
+
+.light {
+  filter: brightness(1) invert(0);
 }
 
 .header__switcherButton {
